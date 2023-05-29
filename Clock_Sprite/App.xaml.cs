@@ -8,20 +8,22 @@ namespace Clock_Sprite
     /// </summary>
     public partial class App : Application
     {
-        int offset = 15;
-
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            foreach (System.Windows.Forms.Screen screen in System.Windows.Forms.Screen.AllScreens)
+            var ss = System.Windows.Forms.Screen.AllScreens;
+            int offset = 15;
+
+            for (int i = 0; i < ss.Length; i++)
             {
                 MainSprite ms = new MainSprite();
                 ms.Opacity = 0;
                 ms.Show();
 
-                ms.Left = screen.WorkingArea.Right - ms.ActualWidth - offset;
-                ms.Top = screen.WorkingArea.Top + offset;
+                ms.Left = ss[i].WorkingArea.Right - ms.ActualWidth - offset;
+                ms.Top = ss[i].WorkingArea.Top + offset;
+                ms.title_Run.Text = "Clock Sprite [" + (i + 1) + "/" + ss.Length + "] 使用技巧：";
 
                 ms.Opacity = 1;
             }

@@ -21,12 +21,13 @@
         local:WindowAttach.IsDragElement="True">
     <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="0,11,11,11" Margin="25">
         <local:SimplePanel>
-            <TextBlock Name="clockTB" FontSize="28" Text="00:00:00" Foreground="White" Padding="8,4" MouseWheel="clock_MouseWheel"
+            <TextBlock Name="clockTB" FontSize="36" Text="00:00:00" Foreground="White" Padding="8,4,8,2" MouseWheel="clock_MouseWheel"
+                       FontFamily="/Clock_Sprite;component/Resources/#HP15C Simulator Font"
                        ToolTipService.ShowDuration="60000" ToolTipService.HorizontalOffset="-25" ToolTipService.VerticalOffset="-25">
                 <TextBlock.ToolTip>
                     <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="11" Margin="25">
                         <TextBlock FontSize="14" Foreground="White" Padding="8,4,0,4">
-                            <Bold>Clock Sprite 使用技巧：</Bold><LineBreak/>
+                            <Run FontWeight="ExtraBold" Name="title_Run"/><LineBreak/>
                             1.软件启动时位于每个显示器右上角且<Run FontWeight="ExtraBold">窗口置顶</Run>；<LineBreak/>
                             2.鼠标左键按住窗口任意位置拖动窗口；<LineBreak/>
                             3.鼠标左键点击<Run Foreground="{StaticResource HighlightBrush}" FontWeight="ExtraBold">"i"</Run>按钮切换窗口是否置顶；<LineBreak/>
