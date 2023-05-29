@@ -79,7 +79,7 @@ namespace Clock_Sprite.View
 
         private void exit_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            Close();
         }
 
         private void exit_MouseLeave(object sender, MouseEventArgs e)

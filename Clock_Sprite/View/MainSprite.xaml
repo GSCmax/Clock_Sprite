@@ -25,21 +25,15 @@
                        ToolTipService.ShowDuration="60000" ToolTipService.HorizontalOffset="-25" ToolTipService.VerticalOffset="-25">
                 <TextBlock.ToolTip>
                     <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="11" Margin="25">
-                        <StackPanel>
-                            <TextBlock FontSize="14" Foreground="White" Padding="8,4,0,4">
-                                <Bold>使用技巧：</Bold><LineBreak/>
-                                1.软件启动时默认位于桌面右上角且<Run FontWeight="ExtraBold">窗口置顶</Run>；<LineBreak/>
-                                2.鼠标左键按住窗口任意位置拖动窗口；<LineBreak/>
-                                3.鼠标左键点击<Run Foreground="{StaticResource HighlightBrush}" FontWeight="ExtraBold">"i"</Run>按钮切换窗口是否置顶；<LineBreak/>
-                                4.鼠标左键双击<Run Foreground="{StaticResource HighlightBrush}" FontWeight="ExtraBold">"i"</Run>按钮显示<Run Foreground="{StaticResource DangerBrush}" FontWeight="ExtraBold">"关闭"</Run>按钮；<LineBreak/>
-                                5.在<Run Foreground="{StaticResource HighlightBrush}" FontWeight="ExtraBold">"i"</Run>按钮区域滚动鼠标滚轮调整窗口透明度；<LineBreak/>
-                                6.在<Run FontWeight="ExtraBold">时间显示</Run>区域滚动鼠标滚轮调整时间显示大小。
-                            </TextBlock>
-                            <Separator HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="8,0"/>
-                            <TextBlock FontSize="14" Foreground="White" Padding="8,4" TextAlignment="Right">
-                                guanshengchao@nuaa.edu.cn
-                            </TextBlock>
-                        </StackPanel>
+                        <TextBlock FontSize="14" Foreground="White" Padding="8,4,0,4">
+                            <Bold>Clock Sprite 使用技巧：</Bold><LineBreak/>
+                            1.软件启动时位于每个显示器右上角且<Run FontWeight="ExtraBold">窗口置顶</Run>；<LineBreak/>
+                            2.鼠标左键按住窗口任意位置拖动窗口；<LineBreak/>
+                            3.鼠标左键点击<Run Foreground="{StaticResource HighlightBrush}" FontWeight="ExtraBold">"i"</Run>按钮切换窗口是否置顶；<LineBreak/>
+                            4.鼠标左键双击<Run Foreground="{StaticResource HighlightBrush}" FontWeight="ExtraBold">"i"</Run>按钮显示<Run Foreground="{StaticResource DangerBrush}" FontWeight="ExtraBold">"关闭"</Run>按钮；<LineBreak/>
+                            5.在<Run Foreground="{StaticResource HighlightBrush}" FontWeight="ExtraBold">"i"</Run>按钮区域滚动鼠标滚轮调整窗口透明度；<LineBreak/>
+                            6.在<Run FontWeight="ExtraBold">时间显示</Run>区域滚动鼠标滚轮调整时间显示大小。
+                        </TextBlock>
                     </Border>
                 </TextBlock.ToolTip>
             </TextBlock>

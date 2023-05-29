@@ -8,22 +8,23 @@ namespace Clock_Sprite
     /// </summary>
     public partial class App : Application
     {
-        MainSprite ms;
         int offset = 15;
 
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            ms = new MainSprite();
-            ms.Opacity = 0;
-            ms.Show();
+            foreach (System.Windows.Forms.Screen screen in System.Windows.Forms.Screen.AllScreens)
+            {
+                MainSprite ms = new MainSprite();
+                ms.Opacity = 0;
+                ms.Show();
 
-            var desktopWorkingArea = SystemParameters.WorkArea;
-            ms.Left = desktopWorkingArea.Width - ms.ActualWidth - offset;
-            ms.Top = offset - ms.Padding.Top;
+                ms.Left = screen.WorkingArea.Right - ms.ActualWidth - offset;
+                ms.Top = screen.WorkingArea.Top + offset;
 
-            ms.Opacity = 1;
+                ms.Opacity = 1;
+            }
         }
     }
 }
