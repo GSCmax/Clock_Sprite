@@ -21,7 +21,7 @@
         local:WindowAttach.IsDragElement="True">
     <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="0,11,11,11" Margin="25">
         <local:SimplePanel>
-            <TextBlock Name="clockTB" FontSize="36" Text="00:00:00" Foreground="White" Padding="8,4,8,2" MouseWheel="clock_MouseWheel"
+            <TextBlock Name="clockTB" FontSize="31" Text="00:00:00" Foreground="White" Margin="8,4,8,0" MouseWheel="clock_MouseWheel"
                        FontFamily="/Clock_Sprite;component/Resources/#HP15C Simulator Font"
                        ToolTipService.ShowDuration="60000" ToolTipService.HorizontalOffset="-25" ToolTipService.VerticalOffset="-25">
                 <TextBlock.ToolTip>
