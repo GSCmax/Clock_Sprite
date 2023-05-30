@@ -136,6 +136,100 @@ namespace Clock_Sprite.View
         }
         #endregion
 
+        #region SnapToScreenEdge
+        public static readonly DependencyProperty SnapToScreenEdgeProperty = DependencyProperty.RegisterAttached("SnapToScreenEdge", typeof(bool), typeof(WindowAttach), new PropertyMetadata(false, OnSnapToScreenEdgeChanged));
+
+        public static void SetSnapToScreenEdge(DependencyObject element, bool value) => element.SetValue(SnapToScreenEdgeProperty, value);
+
+        public static bool GetSnapToScreenEdge(DependencyObject element) => (bool)element.GetValue(SnapToScreenEdgeProperty);
+
+        private static void OnSnapToScreenEdgeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is System.Windows.Window window)
+            {
+                if ((bool)e.NewValue)
+                {
+                    window.SizeChanged += Window_SizeChanged;
+                    window.MouseMove += Window_MouseMove;
+                }
+                else
+                {
+                    window.SizeChanged -= Window_SizeChanged;
+                    window.MouseMove -= Window_MouseMove;
+                }
+            }
+        }
+
+        private static void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            SnapToScreenEdge(sender as System.Windows.Window);
+        }
+
+        private static void Window_MouseMove(object sender, MouseEventArgs e)
+        {
+            SnapToScreenEdge(sender as System.Windows.Window);
+        }
+
+        private static void SnapToScreenEdge(System.Windows.Window sender)
+        {
+            // 获取当前窗口的位置和大小
+            double windowLeft = sender.Left;
+            double windowTop = sender.Top;
+            double windowWidth = sender.ActualWidth;
+            double windowHeight = sender.ActualHeight;
+
+            // 获取当前窗口所在的工作区大小（不包括任务栏）
+            IntPtr hwnd = new WindowInteropHelper(sender).Handle;
+            var workArea = System.Windows.Forms.Screen.FromHandle(hwnd).WorkingArea;
+
+            // 计算边缘吸附的阈值范围
+            double snapLeft = workArea.Left + GetSnapDistance(sender);
+            double snapTop = workArea.Top + GetSnapDistance(sender);
+            double snapRight = workArea.Right - windowWidth - GetSnapDistance(sender);
+            double snapBottom = workArea.Bottom - windowHeight - GetSnapDistance(sender);
+
+            // 判断窗口是否需要进行边缘吸附
+            bool shouldSnap = false;
+
+            if (windowLeft < snapLeft)
+            {
+                windowLeft = snapLeft;
+                shouldSnap = true;
+            }
+            else if (windowLeft > snapRight)
+            {
+                windowLeft = snapRight;
+                shouldSnap = true;
+            }
+
+            if (windowTop < snapTop)
+            {
+                windowTop = snapTop;
+                shouldSnap = true;
+            }
+            else if (windowTop > snapBottom)
+            {
+                windowTop = snapBottom;
+                shouldSnap = true;
+            }
+
+            // 如果需要进行边缘吸附，则更新窗口的位置
+            if (shouldSnap)
+            {
+                sender.Left = windowLeft;
+                sender.Top = windowTop;
+            }
+        }
+        #endregion
+
+        #region SnapDistance
+        public static readonly DependencyProperty SnapDistanceProperty = DependencyProperty.RegisterAttached("SnapDistance", typeof(int), typeof(WindowAttach), new PropertyMetadata(20));
+
+        public static void SetSnapDistance(DependencyObject element, int value) => element.SetValue(SnapDistanceProperty, value);
+
+        public static int GetSnapDistance(DependencyObject element) => (int)element.GetValue(SnapDistanceProperty);
+        #endregion
+
         #region ShowInTaskManager
         public static readonly DependencyProperty ShowInTaskManagerProperty = DependencyProperty.RegisterAttached("ShowInTaskManager", typeof(bool), typeof(WindowAttach), new PropertyMetadata(true, OnShowInTaskManagerChanged));
 
