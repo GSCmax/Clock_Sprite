@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Timers;
 using System.Windows;
 using System.Windows.Input;
 
@@ -7,25 +6,9 @@ namespace Clock_Sprite.View
 {
     public partial class MainSprite : Window
     {
-        Timer clockTimer;
-
         public MainSprite()
         {
             InitializeComponent();
-
-            clockTimer = new Timer()
-            {
-                Interval = 1000,
-                AutoReset = true,
-            };
-
-            clockTimer.Elapsed += clockTimer_Elapsed;
-            clockTimer.Start();
-        }
-
-        private void clockTimer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            Application.Current.Dispatcher.Invoke(() => { clockTB.Text = DateTime.Now.ToString("HH:mm:ss"); });
         }
 
         private void clock_MouseWheel(object sender, MouseWheelEventArgs e)
@@ -58,6 +41,12 @@ namespace Clock_Sprite.View
             exitBTN.Visibility = Visibility.Visible;
         }
 
+        private void exit_MouseLeave(object sender, MouseEventArgs e)
+        {
+            infoBTN.Visibility = Visibility.Visible;
+            exitBTN.Visibility = Visibility.Collapsed;
+        }
+
         private void info_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             var o = Math.Round(Opacity, 2);
@@ -80,12 +69,6 @@ namespace Clock_Sprite.View
         private void exit_Click(object sender, RoutedEventArgs e)
         {
             Close();
-        }
-
-        private void exit_MouseLeave(object sender, MouseEventArgs e)
-        {
-            infoBTN.Visibility = Visibility.Visible;
-            exitBTN.Visibility = Visibility.Collapsed;
         }
     }
 }

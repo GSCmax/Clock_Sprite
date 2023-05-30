@@ -28,7 +28,7 @@
                     <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="11" Margin="25">
                         <TextBlock FontSize="14" Foreground="White" Padding="8,4,0,4">
                             <Run FontWeight="ExtraBold" Name="title_Run"/><LineBreak/>
-                            1.软件启动时位于每个显示器右上角且<Run FontWeight="ExtraBold">窗口置顶</Run>；<LineBreak/>
+                            1.软件启动在每个显示器右上角显示时间窗口且<Run FontWeight="ExtraBold">窗口置顶</Run>；<LineBreak/>
                             2.鼠标左键按住窗口任意位置拖动窗口；<LineBreak/>
                             3.鼠标左键点击<Run Foreground="{StaticResource HighlightBrush}" FontWeight="ExtraBold">"i"</Run>按钮切换窗口是否置顶；<LineBreak/>
                             4.鼠标左键双击<Run Foreground="{StaticResource HighlightBrush}" FontWeight="ExtraBold">"i"</Run>按钮显示<Run Foreground="{StaticResource DangerBrush}" FontWeight="ExtraBold">"关闭"</Run>按钮；<LineBreak/>

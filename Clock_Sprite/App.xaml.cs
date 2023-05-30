@@ -1,4 +1,6 @@
 ﻿using Clock_Sprite.View;
+using System;
+using System.Timers;
 using System.Windows;
 
 namespace Clock_Sprite
@@ -8,6 +10,12 @@ namespace Clock_Sprite
     /// </summary>
     public partial class App : Application
     {
+        Timer clockTimer = new Timer()
+        {
+            Interval = 1000,
+            AutoReset = true,
+        };
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
@@ -27,6 +35,21 @@ namespace Clock_Sprite
 
                 ms.Opacity = 1;
             }
+
+            clockTimer.Elapsed += ClockTimer_Elapsed;
+            clockTimer.Start();
+        }
+
+        private void ClockTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            string clockText = DateTime.Now.ToString("HH:mm:ss");
+            Current.Dispatcher.Invoke(() =>
+            {
+                foreach (var w in Current.Windows)
+                {
+                    (w as MainSprite).clockTB.Text = clockText;
+                }
+            });
         }
     }
 }
