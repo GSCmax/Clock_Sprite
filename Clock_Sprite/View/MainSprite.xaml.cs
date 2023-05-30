@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace Clock_Sprite.View
@@ -69,6 +71,22 @@ namespace Clock_Sprite.View
         private void exit_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+    }
+
+    public class Bool2ResourceConverter : IValueConverter
+    {
+        object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if ((bool)value)
+                return Application.Current.FindResource(((string)parameter).Split('|')[0]);
+            else
+                return Application.Current.FindResource(((string)parameter).Split('|')[1]);
+        }
+
+        object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
         }
     }
 }
