@@ -7,6 +7,14 @@ using System.Windows.Interop;
 
 namespace Clock_Sprite.View
 {
+    public struct WindowRectangle
+    {
+        public double X;
+        public double Y;
+        public double Width;
+        public double Height;
+    }
+
     public static class WindowAttach
     {
         #region IsDragElement
@@ -27,7 +35,7 @@ namespace Clock_Sprite.View
                     ctl.PreviewMouseLeftButtonDown += DragElement_PreviewMouseLeftButtonDown;
                     ctl.PreviewMouseMove += DragElement_PreviewMouseMove;
                     ctl.PreviewMouseLeftButtonUp += DragElement_PreviewMouseLeftButtonUp;
-                    ctl.KeyDown += DragElement_KeyDown;
+                    //ctl.KeyDown += DragElement_KeyDown;
                 }
                 else
                 {
@@ -36,7 +44,7 @@ namespace Clock_Sprite.View
                     ctl.PreviewMouseLeftButtonDown -= DragElement_PreviewMouseLeftButtonDown;
                     ctl.PreviewMouseMove -= DragElement_PreviewMouseMove;
                     ctl.PreviewMouseLeftButtonUp -= DragElement_PreviewMouseLeftButtonUp;
-                    ctl.KeyDown -= DragElement_KeyDown;
+                    //ctl.KeyDown -= DragElement_KeyDown;
                 }
             }
         }
@@ -170,6 +178,8 @@ namespace Clock_Sprite.View
             SnapToScreenEdge(sender as System.Windows.Window);
         }
 
+        private static WindowRectangle prevRectangle = new WindowRectangle { X = .0, Y = .0, Width = .0, Height = .0 };
+
         private static void SnapToScreenEdge(System.Windows.Window sender)
         {
             // 获取当前窗口的位置和大小
@@ -178,46 +188,52 @@ namespace Clock_Sprite.View
             double windowWidth = sender.ActualWidth;
             double windowHeight = sender.ActualHeight;
 
-            // 获取当前窗口所在的工作区大小（不包括任务栏）
-            IntPtr hwnd = new WindowInteropHelper(sender).Handle;
-            var workArea = System.Windows.Forms.Screen.FromHandle(hwnd).WorkingArea;
-
-            // 计算边缘吸附的阈值范围
-            double snapLeft = workArea.Left + GetSnapDistance(sender);
-            double snapTop = workArea.Top + GetSnapDistance(sender);
-            double snapRight = workArea.Right - windowWidth - GetSnapDistance(sender);
-            double snapBottom = workArea.Bottom - windowHeight - GetSnapDistance(sender);
-
-            // 判断窗口是否需要进行边缘吸附
-            bool shouldSnap = false;
-
-            if (windowLeft < snapLeft)
+            // 判断较上一次是否有更新
+            if (windowLeft != prevRectangle.X || windowTop != prevRectangle.Y || windowWidth != prevRectangle.Width || windowHeight != prevRectangle.Height)
             {
-                windowLeft = snapLeft;
-                shouldSnap = true;
-            }
-            else if (windowLeft > snapRight)
-            {
-                windowLeft = snapRight;
-                shouldSnap = true;
-            }
+                // 获取当前窗口所在的工作区大小（不包括任务栏）
+                IntPtr hwnd = new WindowInteropHelper(sender).Handle;
+                var workArea = System.Windows.Forms.Screen.FromHandle(hwnd).WorkingArea;
 
-            if (windowTop < snapTop)
-            {
-                windowTop = snapTop;
-                shouldSnap = true;
-            }
-            else if (windowTop > snapBottom)
-            {
-                windowTop = snapBottom;
-                shouldSnap = true;
-            }
+                // 计算边缘吸附的阈值范围
+                double snapLeft = workArea.Left + GetSnapDistance(sender);
+                double snapTop = workArea.Top + GetSnapDistance(sender);
+                double snapRight = workArea.Right - windowWidth - GetSnapDistance(sender);
+                double snapBottom = workArea.Bottom - windowHeight - GetSnapDistance(sender);
 
-            // 如果需要进行边缘吸附，则更新窗口的位置
-            if (shouldSnap)
-            {
-                sender.Left = windowLeft;
-                sender.Top = windowTop;
+                // 判断窗口是否需要进行边缘吸附
+                bool shouldSnap = false;
+
+                if (windowLeft < snapLeft)
+                {
+                    windowLeft = snapLeft;
+                    shouldSnap = true;
+                }
+                else if (windowLeft > snapRight)
+                {
+                    windowLeft = snapRight;
+                    shouldSnap = true;
+                }
+
+                if (windowTop < snapTop)
+                {
+                    windowTop = snapTop;
+                    shouldSnap = true;
+                }
+                else if (windowTop > snapBottom)
+                {
+                    windowTop = snapBottom;
+                    shouldSnap = true;
+                }
+
+                // 如果需要进行边缘吸附，则更新窗口的位置
+                if (shouldSnap)
+                {
+                    sender.Left = windowLeft;
+                    sender.Top = windowTop;
+                }
+
+                prevRectangle = new WindowRectangle { X = windowLeft, Y = windowTop, Width = windowWidth, Height = windowHeight };
             }
         }
         #endregion
