@@ -26,8 +26,7 @@
     <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="0,10,10,10" Margin="25">
         <local:SimplePanel>
             <TextBlock Name="clockTB" FontSize="31" Text="00:00:00" Foreground="White" Margin="8,4,8,0"
-                       FontFamily="/Clock_Sprite;component/Resources/#HP15C Simulator Font"
-                       ToolTipService.ShowDuration="60000" ToolTipService.HorizontalOffset="-25" ToolTipService.VerticalOffset="-25"/>
+                       FontFamily="/Clock_Sprite;component/Resources/#HP15C Simulator Font"/>
             <Button Name="closeBTN" Visibility="Collapsed"
                     Width="20" Height="20" Style="{StaticResource ButtonIcon}"
                     Foreground="{StaticResource HighlightBrush}" Background="White"
