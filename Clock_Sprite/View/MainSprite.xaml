@@ -19,7 +19,6 @@
         local:WindowAttach.ShowInTaskManager="False"
         local:WindowAttach.IgnoreAltF4="True"
         local:WindowAttach.IsDragElement="True"
-        local:WindowAttach.SnapDistance="0"
         local:WindowAttach.SnapToScreenEdge="True">
     <Window.Resources>
         <local:Bool2ResourceConverter x:Key="B2RC"/>
