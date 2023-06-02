@@ -1,5 +1,6 @@
 ﻿using Clock_Sprite.View;
 using System;
+using System.Globalization;
 using System.Timers;
 using System.Windows;
 
@@ -42,12 +43,13 @@ namespace Clock_Sprite
 
         private void ClockTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            string clockText = DateTime.Now.ToString("HH:mm:ss");
+            DateTime nowDateTime = DateTime.Now;
             Current.Dispatcher.Invoke(() =>
             {
                 foreach (var w in Current.Windows)
                 {
-                    (w as MainSprite).clockTB.Text = clockText;
+                    (w as MainSprite).timeTB.Text = nowDateTime.ToString("HH:mm:ss");
+                    (w as MainSprite).dateTB.Text = nowDateTime.ToString("yy.MM.dd-ddd", new CultureInfo("en-US"));
                 }
             });
         }

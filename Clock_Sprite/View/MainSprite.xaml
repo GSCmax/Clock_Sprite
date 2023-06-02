@@ -25,7 +25,9 @@
     </Window.Resources>
     <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="0,10,10,10" Margin="25">
         <local:SimplePanel>
-            <TextBlock Name="clockTB" FontSize="31" Text="00:00:00" Foreground="White" Margin="8,4,8,0"
+            <TextBlock Name="timeTB" FontSize="31" Text="88:88:88" Foreground="White" Margin="8,4,8,0" HorizontalAlignment="Center"
+                       FontFamily="/Clock_Sprite;component/Resources/#HP15C Simulator Font"/>
+            <TextBlock Name="dateTB" FontSize="21" Text="88.88.88-888" Foreground="White" Margin="8,37,8,3" HorizontalAlignment="Center"
                        FontFamily="/Clock_Sprite;component/Resources/#HP15C Simulator Font"/>
             <Button Name="closeBTN" Visibility="Collapsed"
                     Width="20" Height="20" Style="{StaticResource ButtonIcon}"
