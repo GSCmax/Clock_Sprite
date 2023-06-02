@@ -32,7 +32,7 @@ namespace Clock_Sprite
                 ms.Left = ss[i].WorkingArea.Right - ms.ActualWidth - offset;
                 ms.Top = ss[i].WorkingArea.Top + offset;
                 WindowAttach.SetSnapDistance(ms, offset);
-                ms.title_Run.Text = "Clock Sprite [" + (i + 1) + "/" + ss.Length + "] 使用技巧：";
+                //ms.title_Run.Text = "Clock Sprite [" + (i + 1) + "/" + ss.Length + "] 使用技巧：";
 
                 ms.Opacity = 1;
             }
