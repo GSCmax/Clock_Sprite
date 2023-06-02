@@ -12,7 +12,7 @@
         ShowActivated="False"
         ResizeMode="NoResize"
         AllowsTransparency="True"
-        Background="Transparent"
+        Background="{x:Null}"
         UseLayoutRounding="True"
         SnapsToDevicePixels="True"
         Topmost="True"
@@ -24,37 +24,36 @@
     <Window.Resources>
         <local:Bool2ResourceConverter x:Key="B2RC"/>
     </Window.Resources>
-    <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="0,11,11,11" Margin="25">
+    <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="0,10,10,10" Margin="25">
         <local:SimplePanel>
-            <TextBlock Name="clockTB" FontSize="31" Text="00:00:00" Foreground="White" Margin="8,4,8,0" MouseWheel="clock_MouseWheel"
+            <TextBlock Name="clockTB" FontSize="31" Text="00:00:00" Foreground="White" Margin="8,4,8,0"
                        FontFamily="/Clock_Sprite;component/Resources/#HP15C Simulator Font"
                        ToolTipService.ShowDuration="60000" ToolTipService.HorizontalOffset="-25" ToolTipService.VerticalOffset="-25">
                 <TextBlock.ToolTip>
-                    <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="11" Margin="25">
+                    <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="10" Margin="25">
                         <TextBlock FontSize="14" Foreground="White" Padding="8,4,0,4">
                             <Run FontWeight="ExtraBold" Name="title_Run"/><LineBreak/>
                             1.软件启动后窗口默认为<Run FontWeight="ExtraBold">置顶状态</Run>；<LineBreak/>
-                            2.鼠标左键按住窗口任意位置拖动窗口；<LineBreak/>
-                            3.鼠标左键点击<Run Foreground="{StaticResource HighlightBrush}" FontWeight="ExtraBold">"i"</Run>按钮切换窗口是否置顶；<LineBreak/>
+                            2.鼠标左键按住<Run FontWeight="ExtraBold">时间显示</Run>区域拖动窗口；<LineBreak/>
+                            3.鼠标左键点击<Run Foreground="{StaticResource HighlightBrush}" FontWeight="ExtraBold">"i"</Run>按钮切换窗口置顶；<LineBreak/>
                             4.鼠标左键双击<Run Foreground="{StaticResource HighlightBrush}" FontWeight="ExtraBold">"i"</Run>按钮显示<Run Foreground="{StaticResource DangerBrush}" FontWeight="ExtraBold">"关闭"</Run>按钮；<LineBreak/>
-                            5.在<Run Foreground="{StaticResource HighlightBrush}" FontWeight="ExtraBold">"i"</Run>按钮区域滚动鼠标滚轮调整窗口透明度；<LineBreak/>
-                            6.在<Run FontWeight="ExtraBold">时间显示</Run>区域滚动鼠标滚轮调整时间显示大小。
+                            5.鼠标滚轮滚动<Run Foreground="{StaticResource HighlightBrush}" FontWeight="ExtraBold">"i"</Run>按钮调整窗口透明度。
                         </TextBlock>
                     </Border>
                 </TextBlock.ToolTip>
             </TextBlock>
             <Button Name="exitBTN" Visibility="Collapsed"
-                    Width="22" Height="22" Style="{StaticResource ButtonIcon}"
+                    Width="20" Height="20" Style="{StaticResource ButtonIcon}"
                     Foreground="{StaticResource DangerBrush}" Background="White" Click="exit_Click" MouseLeave="exit_MouseLeave"
-                    local:BorderElement.CornerRadius="11"
+                    local:BorderElement.CornerRadius="10"
                     local:IconElement.Geometry="{StaticResource ErrorGeometry}" Padding="-1"
-                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-9,-9,0,0"/>
+                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-8,-8,0,0"/>
             <Button Name="infoBTN" Visibility="Visible"
-                    Width="22" Height="22" Style="{StaticResource ButtonIcon}"
+                    Width="20" Height="20" Style="{StaticResource ButtonIcon}"
                     Foreground="{Binding Topmost, Converter={StaticResource B2RC},ConverterParameter='HighlightBrush|BackgroundBrush', RelativeSource={RelativeSource AncestorType=Window}}" Background="White" Click="info_Click" MouseDoubleClick="info_MouseDoubleClick" MouseWheel="info_MouseWheel"
-                    local:BorderElement.CornerRadius="11"
+                    local:BorderElement.CornerRadius="10"
                     local:IconElement.Geometry="{StaticResource InfoGeometry}" Padding="-1"
-                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-9,-9,0,0">
+                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-8,-8,0,0">
             </Button>
         </local:SimplePanel>
     </Border>

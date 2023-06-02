@@ -13,6 +13,7 @@ namespace Clock_Sprite.View
             InitializeComponent();
         }
 
+        //Not use
         private void clock_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             var o = Math.Round(clockTB.FontSize, 0);

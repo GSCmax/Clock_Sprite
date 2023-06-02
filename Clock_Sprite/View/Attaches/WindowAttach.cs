@@ -30,20 +30,20 @@ namespace Clock_Sprite.View
             {
                 if ((bool)e.NewValue)
                 {
-                    //ctl.MouseLeftButtonDown += DragElement_MouseLeftButtonDown;
+                    ctl.MouseLeftButtonDown += DragElement_MouseLeftButtonDown;
 
-                    ctl.PreviewMouseLeftButtonDown += DragElement_PreviewMouseLeftButtonDown;
-                    ctl.PreviewMouseMove += DragElement_PreviewMouseMove;
-                    ctl.PreviewMouseLeftButtonUp += DragElement_PreviewMouseLeftButtonUp;
+                    //ctl.PreviewMouseLeftButtonDown += DragElement_PreviewMouseLeftButtonDown;
+                    //ctl.PreviewMouseMove += DragElement_PreviewMouseMove;
+                    //ctl.PreviewMouseLeftButtonUp += DragElement_PreviewMouseLeftButtonUp;
                     //ctl.KeyDown += DragElement_KeyDown;
                 }
                 else
                 {
-                    //ctl.MouseLeftButtonDown -= DragElement_MouseLeftButtonDown;
+                    ctl.MouseLeftButtonDown -= DragElement_MouseLeftButtonDown;
 
-                    ctl.PreviewMouseLeftButtonDown -= DragElement_PreviewMouseLeftButtonDown;
-                    ctl.PreviewMouseMove -= DragElement_PreviewMouseMove;
-                    ctl.PreviewMouseLeftButtonUp -= DragElement_PreviewMouseLeftButtonUp;
+                    //ctl.PreviewMouseLeftButtonDown -= DragElement_PreviewMouseLeftButtonDown;
+                    //ctl.PreviewMouseMove -= DragElement_PreviewMouseMove;
+                    //ctl.PreviewMouseLeftButtonUp -= DragElement_PreviewMouseLeftButtonUp;
                     //ctl.KeyDown -= DragElement_KeyDown;
                 }
             }
