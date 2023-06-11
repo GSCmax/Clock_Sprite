@@ -12,7 +12,7 @@
         ShowActivated="False"
         ResizeMode="NoResize"
         AllowsTransparency="True"
-        Background="{x:Null}"
+        Background="Transparent"
         UseLayoutRounding="True"
         SnapsToDevicePixels="True"
         Topmost="True"
@@ -25,25 +25,25 @@
     </Window.Resources>
     <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="0,10,10,10" Margin="25">
         <local:SimplePanel>
-            <TextBlock Name="timeTB" FontSize="28" Text="88:88:88" Foreground="White" Margin="5"
+            <TextBlock Name="timeTB" FontSize="26" Text="88:88:88" Foreground="White" Margin="5"
                        HorizontalAlignment="Center" VerticalAlignment="Top"
                        FontFamily="/Clock_Sprite;component/Resources/#DSEG7 Classic Mini"/>
-            <TextBlock Name="dateTB" FontSize="20" Text="88.88.88" Foreground="White" Margin="5"
+            <TextBlock Name="dateTB" FontSize="18" Text="88.88.88" Foreground="White" Margin="5"
                        HorizontalAlignment="Left" VerticalAlignment="Bottom"
                        FontFamily="/Clock_Sprite;component/Resources/#DSEG7 Classic Mini"/>
-            <TextBlock Name="weekTB" FontSize="18" Text="888" Foreground="White" Margin="5,40,5,6"
+            <TextBlock Name="weekTB" FontSize="18" Text="888" Foreground="White" Margin="5,37,5,5"
                        HorizontalAlignment="Right" VerticalAlignment="Bottom"
                        FontFamily="/Clock_Sprite;component/Resources/#DSEG14 Classic Mini"/>
             <Button Name="closeBTN" Visibility="Collapsed"
                     Width="22" Height="22" Style="{StaticResource ButtonIcon}"
-                    Foreground="{StaticResource DangerBrush}" Background="White"
+                    Background="White" Foreground="{StaticResource DangerBrush}"
                     Click="close_Click" MouseLeave="close_MouseLeave"
                     local:BorderElement.CornerRadius="11"
                     local:IconElement.Geometry="{StaticResource ErrorGeometry}" Padding="-1"
                     HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-8,-8,0,0"/>
             <Button Name="infoBTN" Visibility="Visible"
                     Width="22" Height="22" Style="{StaticResource ButtonIcon}"
-                    Foreground="{Binding Topmost, Converter={StaticResource B2RC},ConverterParameter='HighlightBrush|BackgroundBrush', RelativeSource={RelativeSource AncestorType=Window}}" Background="White"
+                    Background="White" Foreground="{Binding Topmost, Converter={StaticResource B2RC},ConverterParameter='HighlightBrush|BackgroundBrush', RelativeSource={RelativeSource AncestorType=Window}}"
                     Click="info_Click" MouseDoubleClick="info_MouseDoubleClick" MouseWheel="info_MouseWheel"
                     local:BorderElement.CornerRadius="11"
                     local:IconElement.Geometry="{StaticResource InfoGeometry}" Padding="-1"
