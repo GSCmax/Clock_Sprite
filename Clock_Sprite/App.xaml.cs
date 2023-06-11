@@ -17,6 +17,10 @@ namespace Clock_Sprite
             AutoReset = true,
         };
 
+        CultureInfo ci_US = new CultureInfo("en-US");
+
+        DateTime nowDateTime;
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
@@ -43,14 +47,14 @@ namespace Clock_Sprite
 
         private void ClockTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            DateTime nowDateTime = DateTime.Now;
+            nowDateTime = DateTime.Now;
             Current.Dispatcher.Invoke(() =>
             {
                 foreach (var w in Current.Windows)
                 {
                     (w as MainSprite).timeTB.Text = nowDateTime.ToString("HH:mm:ss");
-                    (w as MainSprite).dateTB.Text = nowDateTime.ToString("yy.MM.dd", new CultureInfo("en-US"));
-                    (w as MainSprite).weekTB.Text = nowDateTime.ToString("ddd", new CultureInfo("en-US"));
+                    (w as MainSprite).dateTB.Text = nowDateTime.ToString("yy.MM.dd", ci_US);
+                    (w as MainSprite).weekTB.Text = nowDateTime.ToString("ddd", ci_US);
                 }
             });
         }
