@@ -34,7 +34,7 @@ namespace Clock_Sprite
                 ms.Top = ss[i].WorkingArea.Top + offset;
                 WindowAttach.SetSnapDistance(ms, offset);
 
-                ms.Opacity = .8;
+                ms.Opacity = 1.0;
             }
 
             clockTimer.Elapsed += ClockTimer_Elapsed;
