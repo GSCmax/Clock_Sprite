@@ -49,7 +49,8 @@ namespace Clock_Sprite
                 foreach (var w in Current.Windows)
                 {
                     (w as MainSprite).timeTB.Text = nowDateTime.ToString("HH:mm:ss");
-                    (w as MainSprite).dateTB.Text = nowDateTime.ToString("yy.MM.dd-ddd", new CultureInfo("en-US"));
+                    (w as MainSprite).dateTB.Text = nowDateTime.ToString("yy.MM.dd", new CultureInfo("en-US"));
+                    (w as MainSprite).weekTB.Text = nowDateTime.ToString("ddd", new CultureInfo("en-US"));
                 }
             });
         }
