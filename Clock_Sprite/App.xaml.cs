@@ -27,14 +27,14 @@ namespace Clock_Sprite
             for (int i = 0; i < ss.Length; i++)
             {
                 MainSprite ms = new MainSprite();
-                ms.Opacity = 0;
+                ms.Opacity = .0;
                 ms.Show();
 
                 ms.Left = ss[i].WorkingArea.Right - ms.ActualWidth - offset;
                 ms.Top = ss[i].WorkingArea.Top + offset;
                 WindowAttach.SetSnapDistance(ms, offset);
 
-                ms.Opacity = 1;
+                ms.Opacity = .8;
             }
 
             clockTimer.Elapsed += ClockTimer_Elapsed;
