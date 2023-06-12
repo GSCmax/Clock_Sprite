@@ -54,12 +54,15 @@ namespace Clock_Sprite
             {
                 foreach (var w in Current.Windows)
                 {
-                    if (showColon)
-                        (w as MainSprite).timeTB.Text = nowDateTime.ToString("HH:mm:ss");
-                    else
-                        (w as MainSprite).timeTB.Text = nowDateTime.ToString("HH mm ss");
-                    (w as MainSprite).dateTB.Text = nowDateTime.ToString("yy. MM. dd", ci_US);
-                    (w as MainSprite).weekTB.Text = nowDateTime.ToString("ddd", ci_US);
+                    if(w is MainSprite)
+                    {
+                        if (showColon)
+                            (w as MainSprite).timeTB.Text = nowDateTime.ToString("HH:mm:ss");
+                        else
+                            (w as MainSprite).timeTB.Text = nowDateTime.ToString("HH mm ss");
+                        (w as MainSprite).dateTB.Text = nowDateTime.ToString("yy. MM. dd", ci_US);
+                        (w as MainSprite).weekTB.Text = nowDateTime.ToString("ddd", ci_US);
+                    }
                 }
             });
             showColon = !showColon;
