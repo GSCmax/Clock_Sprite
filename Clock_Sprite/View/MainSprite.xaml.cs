@@ -40,25 +40,13 @@ namespace Clock_Sprite.View
 
         private void info_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            switch (e.ChangedButton)
-            {
-                case MouseButton.Left:
-                    infoBTN.Visibility = Visibility.Collapsed;
-                    closeBTN.Visibility = Visibility.Visible;
-                    break;
-                case MouseButton.Right:
-                    infoBTN.Visibility = Visibility.Collapsed;
-                    exitBTN.Visibility = Visibility.Visible;
-                    break;
-                default:
-                    break;
-            }
+            infoBTN.Visibility = Visibility.Collapsed;
+            closeBTN.Visibility = Visibility.Visible;
         }
 
-        private void close_or_exit_MouseLeave(object sender, MouseEventArgs e)
+        private void close_MouseLeave(object sender, MouseEventArgs e)
         {
             closeBTN.Visibility = Visibility.Collapsed;
-            exitBTN.Visibility = Visibility.Collapsed;
             infoBTN.Visibility = Visibility.Visible;
         }
 
@@ -84,11 +72,6 @@ namespace Clock_Sprite.View
         private void close_Click(object sender, RoutedEventArgs e)
         {
             Close();
-        }
-
-        private void exit_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
         }
     }
 

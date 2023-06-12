@@ -16,6 +16,8 @@ namespace Clock_Sprite
             AutoReset = true,
         };
 
+        string clockText = null;
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
@@ -43,7 +45,7 @@ namespace Clock_Sprite
 
         private void ClockTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            string clockText = DateTime.Now.ToString("HH:mm:ss");
+            clockText = DateTime.Now.ToString("HH:mm:ss");
             Current.Dispatcher.Invoke(() =>
             {
                 foreach (var w in Current.Windows)
