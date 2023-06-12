@@ -21,6 +21,8 @@ namespace Clock_Sprite
 
         DateTime nowDateTime;
 
+        bool showColon = false;
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
@@ -52,11 +54,15 @@ namespace Clock_Sprite
             {
                 foreach (var w in Current.Windows)
                 {
-                    (w as MainSprite).timeTB.Text = nowDateTime.ToString("HH:mm:ss");
-                    (w as MainSprite).dateTB.Text = nowDateTime.ToString("yy.MM.dd", ci_US);
+                    if (showColon)
+                        (w as MainSprite).timeTB.Text = nowDateTime.ToString("HH:mm:ss");
+                    else
+                        (w as MainSprite).timeTB.Text = nowDateTime.ToString("HH mm ss");
+                    (w as MainSprite).dateTB.Text = nowDateTime.ToString("yy. MM. dd", ci_US);
                     (w as MainSprite).weekTB.Text = nowDateTime.ToString("ddd", ci_US);
                 }
             });
+            showColon = !showColon;
         }
     }
 }
