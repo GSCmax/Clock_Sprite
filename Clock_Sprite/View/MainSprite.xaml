@@ -23,23 +23,22 @@
     <Window.Resources>
         <local:Bool2ResourceConverter x:Key="B2RC"/>
     </Window.Resources>
-    <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="0,10,10,10" Margin="25">
+    <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="0,8,8,8" Margin="25"
+            ToolTipService.ShowDuration="60000" ToolTipService.HorizontalOffset="-25" ToolTipService.VerticalOffset="-25">
+        <Border.ToolTip>
+            <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="8" Margin="25">
+                <TextBlock FontSize="14" Foreground="White" Padding="7,4,0,4">
+                    <Run FontWeight="ExtraBold" Name="title_Run"/><LineBreak/>
+                    1.软件启动后默认为<Run FontWeight="ExtraBold">置顶状态</Run>；<LineBreak/>
+                    2.鼠标左键点击<Run FontWeight="ExtraBold">"i"</Run>按钮切换置顶状态；<LineBreak/>
+                    3.鼠标左键双击<Run FontWeight="ExtraBold">"i"</Run>按钮显示<Run Foreground="{StaticResource DangerBrush}" FontWeight="ExtraBold">"关闭"</Run>按钮；<LineBreak/>
+                    4.鼠标滚轮滚动<Run FontWeight="ExtraBold">"i"</Run>按钮调整显示透明度。
+                </TextBlock>
+            </Border>
+        </Border.ToolTip>
         <local:SimplePanel>
-            <TextBlock Name="clockTB" FontSize="31" Text="88:88:88" Foreground="White" Padding="7,4,7,0"
-                       FontFamily="/Clock_Sprite;component/Resources/#HP15C Simulator Font"
-                       ToolTipService.ShowDuration="60000" ToolTipService.HorizontalOffset="-25" ToolTipService.VerticalOffset="-25">
-                <TextBlock.ToolTip>
-                    <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="10" Margin="25">
-                        <TextBlock FontSize="14" Foreground="White" Padding="7,4,0,4">
-                            <Run FontWeight="ExtraBold" Name="title_Run"/><LineBreak/>
-                            1.软件启动后默认为<Run FontWeight="ExtraBold">置顶状态</Run>；<LineBreak/>
-                            2.鼠标左键点击<Run FontWeight="ExtraBold">"i"</Run>按钮切换置顶状态；<LineBreak/>
-                            3.鼠标左键双击<Run FontWeight="ExtraBold">"i"</Run>按钮显示<Run Foreground="{StaticResource DangerBrush}" FontWeight="ExtraBold">"关闭"</Run>按钮；<LineBreak/>
-                            4.鼠标滚轮滚动<Run FontWeight="ExtraBold">"i"</Run>按钮调整显示透明度。
-                        </TextBlock>
-                    </Border>
-                </TextBlock.ToolTip>
-            </TextBlock>
+            <TextBlock Name="clockTB" FontSize="36" Text="88:88:88" Foreground="White" Margin="5,0,5,-4" IsHitTestVisible="False"
+                       FontFamily="/Clock_Sprite;component/Resources/#HP15C Simulator Font" TextOptions.TextFormattingMode="Display"/>
             <Button Name="closeBTN" Visibility="Collapsed"
                     Width="20" Height="20" Style="{StaticResource ButtonIcon}"
                     Background="White" Foreground="{StaticResource DangerBrush}"

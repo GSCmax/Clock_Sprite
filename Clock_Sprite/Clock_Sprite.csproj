@@ -114,7 +114,7 @@
     <Resource Include="Resources\icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\HP15C_Simulator_Font.ttf" />
+    <Resource Include="Resources\HP-15C_Simulator_Font.ttf" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
