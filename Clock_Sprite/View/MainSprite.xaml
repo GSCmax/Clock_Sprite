@@ -25,14 +25,14 @@
     </Window.Resources>
     <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="0,10,10,10" Margin="25">
         <local:SimplePanel>
-            <TextBlock Name="clockTB" FontSize="31" Text="00:00:00" Foreground="White" Margin="8,4,8,0"
+            <TextBlock Name="clockTB" FontSize="31" Text="00:00:00" Foreground="White" Margin="6,2,6,-2"
                        FontFamily="/Clock_Sprite;component/Resources/#HP15C Simulator Font"
                        ToolTipService.ShowDuration="60000" ToolTipService.HorizontalOffset="-25" ToolTipService.VerticalOffset="-25">
                 <TextBlock.ToolTip>
                     <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="10" Margin="25">
                         <TextBlock FontSize="14" Foreground="White" Padding="8,4,0,4">
                             <Run FontWeight="ExtraBold" Name="title_Run"/><LineBreak/>
-                            1.软件启动后窗口默认为<Run Foreground="{StaticResource HighlightBrush}" FontWeight="ExtraBold">置顶状态</Run>；<LineBreak/>
+                            1.软件启动后默认为<Run Foreground="{StaticResource HighlightBrush}" FontWeight="ExtraBold">窗口置顶状态</Run>；<LineBreak/>
                             2.鼠标左键按住<Run FontWeight="ExtraBold">时间显示</Run>区域拖动窗口；<LineBreak/>
                             3.鼠标左键点击<Run FontWeight="ExtraBold">"i"</Run>按钮切换窗口置顶；<LineBreak/>
                             4.鼠标左键双击<Run FontWeight="ExtraBold">"i"</Run>按钮显示<Run Foreground="{StaticResource DangerBrush}" FontWeight="ExtraBold">"关闭"</Run>按钮；<LineBreak/>
