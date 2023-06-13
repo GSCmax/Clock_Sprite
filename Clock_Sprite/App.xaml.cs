@@ -37,7 +37,8 @@ namespace Clock_Sprite
                 ms.Show();
 
                 ms.Left = ss[i].WorkingArea.Right - ms.ActualWidth - offset;
-                ms.Top = ss[i].WorkingArea.Top + offset;
+                //ms.Top = ss[i].WorkingArea.Top + offset;
+                ms.Top = ss[i].WorkingArea.Bottom - ms.ActualHeight - offset;
                 WindowAttach.SetSnapDistance(ms, offset);
 
                 ms.Opacity = 1.0;
