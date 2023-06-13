@@ -16,7 +16,9 @@ namespace Clock_Sprite
             AutoReset = true,
         };
 
-        string clockText = null;
+        DateTime nowDateTime;
+
+        bool showColon = false;
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -45,14 +47,21 @@ namespace Clock_Sprite
 
         private void ClockTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            clockText = DateTime.Now.ToString("HH:mm:ss");
+            nowDateTime = DateTime.Now;
             Current.Dispatcher.Invoke(() =>
             {
                 foreach (var w in Current.Windows)
                 {
-                    (w as MainSprite).clockTB.Text = clockText;
+                    if (w is MainSprite)
+                    {
+                        if (showColon)
+                            (w as MainSprite).clockTB.Text = nowDateTime.ToString("HH:mm:ss");
+                        else
+                            (w as MainSprite).clockTB.Text = nowDateTime.ToString("HH mm ss");
+                    }
                 }
             });
+            showColon = !showColon;
         }
     }
 }
