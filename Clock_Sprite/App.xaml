@@ -7,7 +7,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color o:Freeze="True" x:Key="DangerColor">#db3340</Color>
-            <Color o:Freeze="True" x:Key="BackgroundColor">#343541</Color>
+            <Color o:Freeze="True" x:Key="BackgroundColor">#202123</Color>
             <Color o:Freeze="True" x:Key="HighlightColor">#7160e8</Color>
             <SolidColorBrush o:Freeze="True" x:Key="DangerBrush" Color="{StaticResource DangerColor}"/>
             <SolidColorBrush o:Freeze="True" x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}"/>
