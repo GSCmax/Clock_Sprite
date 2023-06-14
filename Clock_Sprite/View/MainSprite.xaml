@@ -40,14 +40,14 @@
                     Click="close_Click" MouseLeave="close_MouseLeave"
                     local:BorderElement.CornerRadius="10"
                     local:IconElement.Geometry="{StaticResource ErrorGeometry}" Padding="-1"
-                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-8,-8,0,0"/>
+                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-7,-7,0,0"/>
             <Button Name="infoBTN" Visibility="Visible"
                     Width="20" Height="20" Style="{StaticResource ButtonIcon}"
                     Background="White" Foreground="{Binding Topmost, Converter={StaticResource B2RC},ConverterParameter='HighlightBrush|BackgroundBrush', RelativeSource={RelativeSource AncestorType=Window}}"
                     Click="info_Click" MouseDoubleClick="info_MouseDoubleClick" MouseWheel="info_MouseWheel"
                     local:BorderElement.CornerRadius="10"
                     local:IconElement.Geometry="{StaticResource InfoGeometry}" Padding="-1"
-                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-8,-8,0,0"/>
+                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-7,-7,0,0"/>
         </local:SimplePanel>
     </Border>
 </Window>
