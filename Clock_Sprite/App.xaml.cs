@@ -21,8 +21,6 @@ namespace Clock_Sprite
 
         DateTime nowDateTime;
 
-        bool showColon = false;
-
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
@@ -55,9 +53,9 @@ namespace Clock_Sprite
             {
                 foreach (var w in Current.Windows)
                 {
-                    if(w is MainSprite)
+                    if (w is MainSprite)
                     {
-                        if (showColon)
+                        if (nowDateTime.Second % 2 == 0)
                             (w as MainSprite).timeTB.Text = nowDateTime.ToString("HH:mm:ss");
                         else
                             (w as MainSprite).timeTB.Text = nowDateTime.ToString("HH mm ss");
@@ -66,7 +64,6 @@ namespace Clock_Sprite
                     }
                 }
             });
-            showColon = !showColon;
         }
     }
 }
