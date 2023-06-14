@@ -27,10 +27,10 @@
         <local:SimplePanel>
             <TextBlock Name="timeTB" FontSize="25" Text="88:88:88" Foreground="White" Margin="5" IsHitTestVisible="False"
                        HorizontalAlignment="Center" VerticalAlignment="Top" TextOptions.TextFormattingMode="Display"
-                       FontFamily="/Clock_Sprite;component/Resources/#DSEG7 Classic Mini"/>
+                       FontFamily="/Clock_Sprite;component/Resources/#DSEG14 Classic Mini"/>
             <TextBlock Name="dateTB" FontSize="16" Text="88. 88. 88" Foreground="White" Margin="5,36,5,6" IsHitTestVisible="False"
                        HorizontalAlignment="Left" VerticalAlignment="Bottom" TextOptions.TextFormattingMode="Display"
-                       FontFamily="/Clock_Sprite;component/Resources/#DSEG7 Classic Mini"/>
+                       FontFamily="/Clock_Sprite;component/Resources/#DSEG14 Classic Mini"/>
             <TextBlock Name="weekTB" FontSize="16" Text="~~~" Foreground="White" Margin="5,36,5,6" IsHitTestVisible="False"
                        HorizontalAlignment="Right" VerticalAlignment="Bottom" TextOptions.TextFormattingMode="Display"
                        FontFamily="/Clock_Sprite;component/Resources/#DSEG14 Classic Mini"/>

@@ -115,7 +115,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\DSEG14ClassicMini-BoldItalic.ttf" />
-    <Resource Include="Resources\DSEG7ClassicMini-BoldItalic.ttf" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
