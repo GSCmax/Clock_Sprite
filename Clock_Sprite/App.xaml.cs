@@ -12,7 +12,7 @@ namespace Clock_Sprite
     {
         Timer clockTimer = new Timer()
         {
-            Interval = 1000,
+            Interval = 100,
             AutoReset = true,
         };
 
@@ -44,21 +44,22 @@ namespace Clock_Sprite
             clockTimer.Start();
         }
 
+        protected override void OnExit(ExitEventArgs e)
+        {
+            base.OnExit(e);
+
+            clockTimer.Elapsed -= ClockTimer_Elapsed;
+            clockTimer.Stop();
+        }
+
         private void ClockTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
             nowDateTime = DateTime.Now;
             Current.Dispatcher.Invoke(() =>
             {
                 foreach (var w in Current.Windows)
-                {
                     if (w is MainSprite)
-                    {
-                        if (nowDateTime.Second % 2 == 0)
-                            (w as MainSprite).clockTB.Text = nowDateTime.ToString("HH:mm:ss");
-                        else
-                            (w as MainSprite).clockTB.Text = nowDateTime.ToString("HH mm ss");
-                    }
-                }
+                        (w as MainSprite).clockTB.Text = nowDateTime.ToString((nowDateTime.Second % 2 == 0) ? "HH:mm:ss" : "HH mm ss");
             });
         }
     }
