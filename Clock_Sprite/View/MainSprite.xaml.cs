@@ -13,24 +13,24 @@ namespace Clock_Sprite.View
             InitializeComponent();
         }
 
-        //Not use
         private void clock_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             var o = Math.Round(clockTB.FontSize, 0);
             if (e.Delta > 0)
             {
-                if (o < 60)
-                    clockTB.FontSize += 1;
+                if (o < 80)
+                    clockTB.FontSize += 5;
                 else
-                    clockTB.FontSize = 60;
+                    clockTB.FontSize = 80;
             }
             else
             {
-                if (o > 24)
-                    clockTB.FontSize -= 1;
+                if (o > 25)
+                    clockTB.FontSize -= 5;
                 else
-                    clockTB.FontSize = 24;
+                    clockTB.FontSize = 25;
             }
+            clockTB.Padding = new Thickness(clockTB.FontSize / 5);
         }
 
         private void info_Click(object sender, RoutedEventArgs e)

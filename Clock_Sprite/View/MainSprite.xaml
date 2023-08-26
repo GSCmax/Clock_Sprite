@@ -37,7 +37,7 @@
             </Border>
         </Border.ToolTip>
         <local:SimplePanel>
-            <TextBlock Name="clockTB" FontSize="25" Text="88:88:88" Foreground="White" Padding="5" IsHitTestVisible="False"
+            <TextBlock Name="clockTB" FontSize="25" Text="88:88:88" Foreground="White" Padding="5" MouseWheel="clock_MouseWheel"
                        FontFamily="/Clock_Sprite;component/Resources/#DSEG7 Classic Mini" TextOptions.TextFormattingMode="Display"/>
             <Button Name="closeBTN" Visibility="Collapsed"
                     Width="20" Height="20" Style="{StaticResource ButtonIcon}"
