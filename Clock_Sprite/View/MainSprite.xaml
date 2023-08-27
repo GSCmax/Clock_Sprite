@@ -32,7 +32,8 @@
                     1.软件启动后默认为<Run FontWeight="ExtraBold">置顶状态</Run>；<LineBreak/>
                     2.鼠标左键点击<Run FontWeight="ExtraBold">"i"</Run>按钮切换置顶状态；<LineBreak/>
                     3.鼠标左键双击<Run FontWeight="ExtraBold">"i"</Run>按钮显示<Run Foreground="{StaticResource DangerBrush}" FontWeight="ExtraBold">"关闭"</Run>按钮；<LineBreak/>
-                    4.鼠标滚轮滚动<Run FontWeight="ExtraBold">"i"</Run>按钮调整显示透明度。
+                    4.鼠标滚轮滚动<Run FontWeight="ExtraBold">"i"</Run>按钮调整显示透明度；<LineBreak/>
+                    5.鼠标滚轮滚动<Run FontWeight="ExtraBold">时间显示</Run>区域调整显示大小。
                 </TextBlock>
             </Border>
         </Border.ToolTip>
