@@ -22,8 +22,11 @@
         local:WindowAttach.SnapToScreenEdge="True">
     <Window.Resources>
         <local:Bool2ResourceConverter x:Key="B2RC"/>
+        <local:FontSize2PaddingConverter x:Key="FS2PC"/>
+        <local:FontSize2CornerRadiusConverter x:Key="FS2CRC"/>
     </Window.Resources>
-    <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="0,8,8,8" Margin="25"
+    <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" Margin="25"
+            CornerRadius="{Binding ElementName=clockTB, Path=FontSize, Converter={StaticResource FS2CRC}}"
             ToolTipService.ShowDuration="60000" ToolTipService.HorizontalOffset="-25" ToolTipService.VerticalOffset="-25">
         <Border.ToolTip>
             <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="8" Margin="25">
@@ -38,7 +41,8 @@
             </Border>
         </Border.ToolTip>
         <local:SimplePanel>
-            <TextBlock Name="clockTB" FontSize="25" Text="88:88:88" Foreground="White" Padding="5" MouseWheel="clock_MouseWheel"
+            <TextBlock Name="clockTB" FontSize="25" Text="88:88:88" Foreground="White" MouseWheel="clock_MouseWheel"
+                       Padding="{Binding ElementName=clockTB, Path=FontSize, Converter={StaticResource FS2PC}}"
                        FontFamily="/Clock_Sprite;component/Resources/#DSEG7 Classic Mini" TextOptions.TextFormattingMode="Display"/>
             <Button Name="closeBTN" Visibility="Collapsed"
                     Width="20" Height="20" Style="{StaticResource ButtonIcon}"

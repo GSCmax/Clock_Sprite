@@ -18,19 +18,19 @@ namespace Clock_Sprite.View
             var o = Math.Round(clockTB.FontSize, 0);
             if (e.Delta > 0)
             {
-                if (o < 80)
-                    clockTB.FontSize += 5;
+                if (o < 120)
+                    o += 5;
                 else
-                    clockTB.FontSize = 80;
+                    o = 120;
             }
             else
             {
                 if (o > 25)
-                    clockTB.FontSize -= 5;
+                    o -= 5;
                 else
-                    clockTB.FontSize = 25;
+                    o = 25;
             }
-            clockTB.Padding = new Thickness(clockTB.FontSize / 5);
+            clockTB.FontSize = o;
         }
 
         private void info_Click(object sender, RoutedEventArgs e)
@@ -56,17 +56,18 @@ namespace Clock_Sprite.View
             if (e.Delta > 0)
             {
                 if (o < 1.0)
-                    Opacity += 0.05;
+                    o += 0.05;
                 else
-                    Opacity = 1.0;
+                    o = 1.0;
             }
             else
             {
                 if (o > 0.5)
-                    Opacity -= 0.05;
+                    o -= 0.05;
                 else
-                    Opacity = 0.5;
+                    o = 0.5;
             }
+            Opacity = o;
         }
 
         private void close_Click(object sender, RoutedEventArgs e)
@@ -83,6 +84,33 @@ namespace Clock_Sprite.View
                 return Application.Current.FindResource(((string)parameter).Split('|')[0]);
             else
                 return Application.Current.FindResource(((string)parameter).Split('|')[1]);
+        }
+
+        object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class FontSize2PaddingConverter : IValueConverter
+    {
+        object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return (double)value / 5;
+        }
+
+        object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class FontSize2CornerRadiusConverter : IValueConverter
+    {
+        object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            double cr = (double)value / 5 * 1.6;
+            return new CornerRadius(0, cr, cr, cr);
         }
 
         object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
