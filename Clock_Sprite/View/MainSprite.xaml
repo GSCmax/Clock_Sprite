@@ -27,7 +27,7 @@
     </Window.Resources>
     <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" Margin="25"
             CornerRadius="{Binding ElementName=clockTB, Path=FontSize, Converter={StaticResource FS2CRC}}"
-            ToolTipService.ShowDuration="60000" ToolTipService.HorizontalOffset="-25" ToolTipService.VerticalOffset="-25">
+            ToolTipService.ShowDuration="60000" ToolTipService.HorizontalOffset="-25" ToolTipService.VerticalOffset="-25" ToolTipService.ToolTipOpening="Border_ToolTipOpening">
         <Border.ToolTip>
             <Border Background="{StaticResource BackgroundBrush}" Effect="{StaticResource EffectShadow}" CornerRadius="8" Margin="25">
                 <TextBlock FontSize="14" Foreground="White" Padding="7,4,0,4">

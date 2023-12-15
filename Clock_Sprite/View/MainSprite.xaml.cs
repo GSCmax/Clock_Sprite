@@ -74,6 +74,13 @@ namespace Clock_Sprite.View
         {
             Close();
         }
+
+        private void Border_ToolTipOpening(object sender, System.Windows.Controls.ToolTipEventArgs e)
+        {
+            int t = Application.Current.Windows.Count;
+            for (int i = 0; i < t; i++)
+                (Application.Current.Windows[i] as MainSprite).title_Run.Text = $"Clock Sprite [{i + 1}/{t}] 使用技巧：";
+        }
     }
 
     public class Bool2ResourceConverter : IValueConverter
