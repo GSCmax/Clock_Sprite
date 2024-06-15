@@ -72,7 +72,7 @@ namespace Clock_Sprite.View
 
         private void close_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Application.Current.Shutdown();
         }
 
         private void Border_ToolTipOpening(object sender, System.Windows.Controls.ToolTipEventArgs e)
@@ -80,6 +80,15 @@ namespace Clock_Sprite.View
             int t = Application.Current.Windows.Count;
             for (int i = 0; i < t; i++)
                 (Application.Current.Windows[i] as MainSprite).title_Run.Text = $"Clock Sprite [{i + 1}/{t}] 使用技巧：";
+        }
+
+        private void configAlarmClock_Click(object sender, RoutedEventArgs e)
+        {
+            var accw = new AlarmClockConfigWindow();
+            accw.Show();
+
+            var ow = new OverlayWindow();
+            ow.Show();
         }
     }
 

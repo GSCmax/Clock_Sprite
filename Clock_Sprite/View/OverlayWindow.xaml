@@ -1,0 +1,28 @@
+﻿<Window x:Class="Clock_Sprite.View.OverlayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Clock_Sprite.View"
+        mc:Ignorable="d"
+        Title="OverlayWindow"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Black"
+        ShowInTaskbar="False"
+        Topmost="True"
+        WindowState="Maximized">
+    <Grid>
+        <Border Width="800" Height="800">
+            <Border.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="{StaticResource HighlightColor}" Offset="0.6"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </RadialGradientBrush>
+            </Border.Background>
+            <TextBlock Name="clockTB" FontSize="72" Text="88:88:88" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"
+                       FontFamily="/Clock_Sprite;component/Resources/#DSEG7 Classic Mini" TextOptions.TextFormattingMode="Display"/>
+        </Border>
+    </Grid>
+</Window>

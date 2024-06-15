@@ -40,6 +40,12 @@
                 </TextBlock>
             </Border>
         </Border.ToolTip>
+        <Border.ContextMenu>
+            <ContextMenu>
+                <MenuItem IsCheckable="True" Header="启用闹钟"/>
+                <MenuItem Header="配置闹钟" Click="configAlarmClock_Click"/>
+            </ContextMenu>
+        </Border.ContextMenu>
         <local:SimplePanel>
             <TextBlock Name="clockTB" FontSize="25" Text="88:88:88" Foreground="White" MouseWheel="clock_MouseWheel"
                        Padding="{Binding ElementName=clockTB, Path=FontSize, Converter={StaticResource FS2PC}}"

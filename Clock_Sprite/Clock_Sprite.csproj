@@ -79,12 +79,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="View\AlarmClockConfigWindow.xaml.cs">
+      <DependentUpon>AlarmClockConfigWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Attaches\BorderElement.cs" />
     <Compile Include="View\Attaches\IconElement.cs" />
     <Compile Include="View\Attaches\SimplePanel.cs" />
     <Compile Include="View\Attaches\WindowAttach.cs" />
     <Compile Include="View\MainSprite.xaml.cs">
       <DependentUpon>MainSprite.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OverlayWindow.xaml.cs">
+      <DependentUpon>OverlayWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -93,7 +99,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\AlarmClockConfigWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainSprite.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OverlayWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
